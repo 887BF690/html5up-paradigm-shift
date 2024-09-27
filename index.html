@@ -1,471 +1,543 @@
-<!DOCTYPE HTML>
-<!--
-	Paradigm Shift by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
+
+
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Paradigm Shift by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<head>
+  <meta charset="utf-8" />
+  <title>吃饱饱</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./output.css">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-				<!-- Intro -->
-					<section class="intro">
-						<header>
-							<h1>Paradigm Shift</h1>
-							<p>A free responsive site template designed by <a href="https://twitter.com/ajlkn">@ajlkn</a> / <a href="https://html5up.net">HTML5 UP</a></p>
-							<ul class="actions">
-								<li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
-							</ul>
-						</header>
-						<div class="content">
-							<span class="image fill" data-position="center"><img src="images/pic01.jpg" alt="" /></span>
-						</div>
-					</section>
+    header {
+      color: #fff;
+      text-align: center;
+      padding: 1px;
+      font-size: 30px;
+      text-align: -webkit-center;
+    }
 
-				<!-- Section -->
-					<section id="first">
-						<header>
-							<h2>Magna sed nullam nisl adipiscing</h2>
-						</header>
-						<div class="content">
-							<p><strong>Lorem ipsum dolor</strong> sit amet consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum. Magna sed etiam consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et dolor libero, feugiat magna tempus, sed et lorem adipiscing.</p>
-							<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-						</div>
-					</section>
+    /* 添加媒体查询 */
+    @media screen and (max-width: 600px) {
+      header {
+        font-size: 16px;
+        padding: 5px;
+      }
+    }
 
-				<!-- Section -->
-					<section>
-						<header>
-							<h2>Feugiat consequat tempus ultrices</h2>
-						</header>
-						<div class="content">
-							<p><strong>Etiam tristique libero</strong> eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum.</p>
-							<ul class="feature-icons">
-								<li class="icon solid fa-laptop">Consequat tempus</li>
-								<li class="icon solid fa-bolt">Etiam adipiscing</li>
-								<li class="icon solid fa-signal">Libero nullam</li>
-								<li class="icon solid fa-cog">Blandit condimentum</li>
-								<li class="icon solid fa-map-marker-alt">Lorem ipsum dolor</li>
-								<li class="icon solid fa-code">Nibh amet venenatis</li>
-							</ul>
-							<p>Vehicula ultrices sed ultricies condimentum. Magna sed etiam consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et dolor libero, feugiat magna tempus, sed et lorem adipiscing.</p>
-						</div>
-					</section>
+    .search-box {
+      margin: 10px auto;
+      width: 80%;
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-				<!-- Section -->
-					<section>
-						<header>
-							<h2>Ultrices erat magna sed condimentum</h2>
-						</header>
-						<div class="content">
-							<p><strong>Integer mollis egestas</strong> nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+    .search-box input {
+      flex: 1;
+      border: none;
+      border-radius: 5px;
+      padding: 8px;
+      margin-right: 10px;
+      font-size: 14px;
+    }
 
-							<!-- Section -->
-								<section>
-									<header>
-										<h3>Erat aliquam</h3>
-										<p>Vehicula ultrices dolor amet ultricies et condimentum. Magna sed etiam consequat, et lorem adipiscing sed dolor sit amet, consectetur amet do eiusmod tempor incididunt  ipsum suspendisse ultrices gravida.</p>
-									</header>
-									<div class="content">
-										<div class="gallery">
-											<a href="images/gallery/fulls/01.jpg" class="landscape"><img src="images/gallery/thumbs/01.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/02.jpg"><img src="images/gallery/thumbs/02.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/03.jpg"><img src="images/gallery/thumbs/03.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/04.jpg" class="landscape"><img src="images/gallery/thumbs/04.jpg" alt="" /></a>
-										</div>
-									</div>
-								</section>
+    footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
 
-							<!-- Section -->
-								<section>
-									<header>
-										<h3>Nisl consequat</h3>
-										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam sed facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet mauris. Ut magna finibus nisi nec lacinia ipsum maximus.</p>
-									</header>
-									<div class="content">
-										<div class="gallery">
-											<a href="images/gallery/fulls/05.jpg" class="landscape"><img src="images/gallery/thumbs/05.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/06.jpg"><img src="images/gallery/thumbs/06.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/07.jpg"><img src="images/gallery/thumbs/07.jpg" alt="" /></a>
-										</div>
-									</div>
-								</section>
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      text-align: center;
+      padding: 10px;
+    }
 
-							<!-- Section -->
-								<section>
-									<header>
-										<h3>Lorem gravida</h3>
-										<p>Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aenean ornare velit lacus, ac varius sed enim lorem ullamcorper dolore.  ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis.</p>
-									</header>
-									<div class="content">
-										<div class="gallery">
-											<a href="images/gallery/fulls/08.jpg" class="portrait"><img src="images/gallery/thumbs/08.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/09.jpg" class="portrait"><img src="images/gallery/thumbs/09.jpg" alt="" /></a>
-											<a href="images/gallery/fulls/10.jpg" class="landscape"><img src="images/gallery/thumbs/10.jpg" alt="" /></a>
-										</div>
-									</div>
-								</section>
+    main {
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 69rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
 
-						</div>
-					</section>
+    .link-group {
+      margin: 10px;
+      width: 123px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
 
-				<!-- Section -->
-					<section>
-						<header>
-							<h2>Duis sed adpiscing veroeros amet</h2>
-						</header>
-						<div class="content">
-							<p><strong>Proin tempus feugiat</strong> sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.</p>
-							<ul class="actions">
-								<li><a href="#" class="button primary large">Get Started</a></li>
-								<li><a href="#" class="button large">Learn More</a></li>
-							</ul>
-						</div>
-					</section>
 
-				<!-- Elements -->
-				<!--
-					<section>
-						<header>
-							<h2>Elements</h2>
-						</header>
-						<div class="content">
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-							<section>
-								<header>
-									<h3>Text</h3>
-								</header>
-								<div class="content">
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<hr />
-									<h5>Blockquote</h5>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h5>Preformatted</h5>
-									<pre><code>i = 0;
+    .link-list li {
+      margin: 1px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
 
-while (!deck.isInOrder()) {
-  print 'Iteration ' + i;
-  deck.shuffle();
-  i++;
+    .link-list li a {
+      display: flex;
+      align-items: center;
+      padding: 3px;
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .name:hover {
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .link-list li img {
+    }
+
+    .link-list li .name {
+      flex-grow: 1;
+      margin-left: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .name {
+      text-align: left;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .name span {
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      padding: 3px;
+      display: none;
+    }
+
+    .name:hover span {
+      position: absolute;
+      margin: 10px;
+      background: #ccddcc;
+      border: 1px solid #ccddcc;
+      font-size: 14px;
+      max-width: 100px;
+      padding: 3px;
+      white-space: normal;
+      display: block;
+    }
+
+    .loading {
+      display: inline-block;
+      background: url('bookmark.png') no-repeat center/cover;
+    }
+
+    /* 添加媒体查询 */
+    @media screen and (max-width: 600px) {
+      .link-list li .name {
+        font-size: 10px;
+      }
+    }
+
+    /* 隐藏元素 */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="dark:bg-gray-900">
+  <header class="bg-gray-900">
+    <h2 id="search-input" contenteditable style="width: fit-content;">. 好 开 心 QJHY.</h2>
+    <div class="m-3 text-sm dark:text-gray-100" id="cdark" onclick="changeText()">太阳</div>
+  </header>
+  <main id="main"></main>
+
+  <div class="search-box">
+    <div class="overflow-hidden rounded-lg bg-gray-100">
+      <img src="https://picsum.photos/666/333" id="imim" class="h-auto w-full" style="border-radius: 10px;" />
+
+      <div class="p-4">
+        <h3 class="mb-2 text-lg font-medium">「独黑合白」「大小小大」「五行波色」</h3>
+        <p class=""> 「已有的事后必再有；已行的事后必再行。日光之下并无新事。」</p>
+        <p class="">「岂有一件事人能指着说这是新的？哪知，在我们以前的世代早已有了。」</p>
+
+        <p class="">「已过的世代，无人记念；将来的世代，后来的人也不记念。」</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span style="font-size:small"
+        >2023<a target="_blank" href="https://beian.miit.gov.cn" style="color:#000000; text-decoration:none;">备20247777777</a> All rights  reserved.</span>
+        <span id="kkee"><svg width="16" height="16" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 13v8"></path><path d="M8 13v8"></path><path d="M12 15v8"></path><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path></svg></span>
+  </footer>
+  <script>
+    var count = 0;                          // 计数器，用于记录执行次数
+      var intervalId = setInterval(function() {
+        count++;                              // 执行次数加 1
+        var image = document.getElementById('imim');  // 获取 imim 元素
+        var timestamp = new Date().getTime();       // 创建一个时间戳
+        var newSrc = image.src.split('?')[0] + '?' + timestamp;  // 将时间戳附加到原始图片 URL 上
+        image.src = newSrc;                          // 加载新的图片
+        // 在这里编写需要重复执行的代码
+        // console.log('第 ' + count + ' 次执行');
+
+        if (count >= 12) {                    // 执行次数达到 10 次时退出循环
+          clearInterval(intervalId);         // 清除定时器
+        }
+      }, 10000);
+  </script>
+
+  <script>
+    const data =[
+      				{"n":"1","url": "/666.html","name": "兔年大吉","favicon":""},
+      				{"n":"1","url": "https://www.windy.com","name": "Windy Map","favicon":"https://www.windy.com/favicon.ico"},
+
+      				{"n":"2","url": "https://caiyunapp.com/h5/","name": "天气","favicon":"https://caiyunapp.com/imgs/logo.png"},
+      				{"n":"2","url": "https://open.163.com/","name": "网易公开课","favicon":""},
+      				{"n":"2","url": "https://www.smartedu.cn/","name": "国家教育","favicon":""},
+					{"n":"2","url": "https://textbook.synaiv.com/","name": "中文教科书","favicon":""},
+      				{"n":"2","url": "https://zh.khanacademy.org/","name": "可汗学院","favicon":"https://cdn.kastatic.org/images/favicon.ico"},
+      				{"n":"2","url": "https://u.jd.com/rLbdAKj","name": "京东","favicon":"https://www.jd.com/favicon.ico"},
+
+      				{"n":"3","url": "https://www.ithome.com","name": "IT之家","favicon":"https://www.ithome.com/favicon.ico","remark": "IT之家，青岛软媒旗下的前沿科技门户网站。"},
+      				{"n":"3","url": "https://www.toutiao.com","name": "今日头条","favicon":"https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico"},
+      				{"n":"3","url": "https://www.163.com","name": "网易","favicon":"https://www.163.com/favicon.ico"},
+      				{"n":"3","url": "https://www.gcores.com","name": "机核","favicon":"https://www.gcores.com/favicon.ico"},
+      				{"n":"3","url": "https://www.v2ex.com","name": "V2EX","favicon":"https://www.v2ex.com/static/favicon.ico"},
+      				{"n":"3","url": "https://www.jianshu.com","name": "简书","favicon":"https://cdn2.jianshu.io/assets/favicons/favicon-e743bfb1821442341c3ab15bdbe804f7ad97676bd07a770ccc9483473aa76f06.ico"},
+
+      				{"n":"4","url": "https://tophub.today/c/blog","name": "博客集合","favicon":"https://tophub.today/favicon.ico"},
+      				{"n":"4","url": "https://youquhome.com/","name": "有趣网址","favicon":""},
+					{"n":"4","url": "https://www.github-zh.com/","name": "Github-zh","favicon":""},
+      				{"n":"4","url": "https://hellogithub.com","name": "HelloGithub","favicon":"https://hellogithub.com/favicon/apple-icon-57x57.png"},
+      				{"n":"4","url": "https://www.producthunt.com/","name": "Top app","favicon":""},
+
+      				{"n":"5","url": "https://chat18.aichatos8.com/","name": "AIchatOS","favicon":""},
+      				{"n":"5","url": "https://chat2.aiyunos.top","name": "AIchatOS","favicon":""},
+      				{"n":"5","url": "https://chatforai.com","name": "Chat For AI","favicon":""},
+      				{"n":"5","url": "https://devv.ai/","name": "Devv Ai","favicon":""},
+      				{"n":"5","url": "https://github.com/xx025/carrot","name": "汇总cc.ai55.cc","favicon":"https://chat.openai.com/favicon-16x16.png"},
+
+      				{"n":"6","url": "https://www.webscan.cc/","name": "同一网站查询","favicon":""},
+      				{"n":"6","url": "https://simpread.pro","name": "简悦","favicon":"https://simpread-1254315611.file.myqcloud.com/favicon/apple-icon-57x57.png"},
+      				{"n":"6","url": "https://immersive-translate.owenyoung.com/","name": "沉浸式翻译","favicon":"https://immersive-translate.owenyoung.com/favicon.svg"},
+      				{"n":"6","url": "https://zh-cn.libreoffice.org/","name": "libreoffice","favicon":""},
+					
+      				{"n":"7","url": "https://excalidraw.com","name": "Excali draw","favicon":"https://excalidraw.com/logo-180x180.png"},
+      				{"n":"7","url": "https://pastebin.com/","name": "pastebin","favicon":""},
+      				{"n":"7","url": "https://note.ms","name": "Note","favicon":"https://note.ms/meta/favicon.png"},
+      				{"n":"7","url": "https://telegra.ph","name": "Telegraph","favicon":"https://telegra.ph/favicon.ico","remark":"Telegra.ph是一个简约的发布工具，允许你创建格式丰富的帖子，只需点击一下就能推送到网上。Telegraph帖子还可以在Telegram上获得漂亮的即时浏览页面"},
+      				{"n":"7","url": "https://www.telsearch.me","name": "Telsearch","favicon":"https://www.telsearch.me/logo.png"},
+
+      				{"n":"8","url": "https://www.a.cool/","name": "阿酷导航","favicon":""},
+      				{"n":"8","url": "https://www.ahhhhfs.com/","name": "A姐分享","favicon":""},
+      				{"n":"8","url": "https://www.dogged.cn/","name": "顽狗文件加密","favicon":""},
+      				{"n":"8","url": "https://time.is","name": "Time.is","favicon":"https://time.is/favicon.ico"},
+
+
+
+      				{"n":"9","url": "https://www.hifini.com","name": "HIFI音乐","favicon":"https://www.hifini.com/view/img/favicon.ico"},
+					
+
+      				{"n":"10","url": "https://www.ixigua.com","name": "西瓜视频","favicon":"https://sf1-cdn-tos.douyinstatic.com/obj/eden-cn/lpqpflo/ixigua_favicon.ico"},
+      				{"n":"10","url": "https://hdmoli.com/","name": "HDmoli","favicon":""},
+      				{"n":"10","url": "https://ddys.info/","name": "DD影视","favicon":"https://ddys.art/favicon-16x16.png"},
+      				{"n":"10","url": "https://www.youtube.com","name": "YTb","favicon":"https://www.youtube.com/s/desktop/f8e3757f/img/favicon.ico"},
+
+      				{"n":"11","url": "https://www.domp4.cc","name": "MP4下载","favicon":"https://www.domp4.cc/favicon.ico"},
+      				{"n":"11","url": "https://www.dy2018.com","name": "电影天堂","favicon":"https://www.dy2018.com/favicon.ico"},
+      				{"n":"11","url": "https://www.btdig.com","name": "btdigg","favicon":"https://www.btdig.com/favicon.ico"},
+      				{"n":"11","url": "https://m3u8play.com","name": "M3u8","favicon":"https://m3u8play.com/static/static/logo5.png"},
+      				{"n":"11","url": "https://piped.video/","name": "YTb镜像","favicon":""},
+
+
+      				{"n":"12","url": "https://www.mhhf.com","name": "灵动游戏","favicon":"https://www.mhhf.com/img/favicon.ico"},
+      				{"n":"12","url": "https://dos.zczc.cz","name": "在线DOS游戏","favicon":"https://dos.zczc.cz/favicon.ico"},
+      				{"n":"12","url": "https://clicktheredbutton.com/","name": "随机小游戏","favicon":""},
+					
+      				{"n":"13","url": "https://armorgames.com/","name": "ArmorGames","favicon":"https://armorgames.com/favicon-16x16.png"},
+      				{"n":"13","url": "https://poki.cn","name": "poki小游戏","favicon":"https://a.poki.com/img/favicon.ico"},
+      				{"n":"13","url": "https://lagged.com","name": "Lagged小游戏","favicon":"https://lagged.com/images/icon/144x144.png"},
+      				{"n":"13","url": "https://yandex.com/games/","name": "yandex Game","favicon":"https://yastatic.net/s3/games-static/favicons/favicon.ico"},
+      				{"n":"13","url": "https://www.crazygames.com/","name": "CrazyGames","favicon":"https://images.crazygames.com/favicons/favicon-2-32x32.png"},
+
+      				{"n":"14","url": "https://www.myenglishpages.com","name": "英语手册","favicon":"https://www.myenglishpages.com/images/icons/favicon.ico"},
+					
+      				{"n":"15","url": "https://github.com/itsyebekhe/HiN-VPN/","name": "HIN-VPN","favicon":""},
+      				{"n":"15","url": "https://openproxylist.com/","name": "Poen Proxy","favicon":""},
+      				{"n":"15","url": "https://matsuridayo.github.io/","name": "nekoray","favicon":""},	
+      				{"n":"15","url": "https://gui-for-cores.github.io/","name": "SingBoxGui","favicon":""},	
+
+      				{"n":"16","url": "https://tinypng.com","name": "TinyPNG","favicon":"https://tinypng.com/images/favicon.ico"},
+      				{"n":"16","url": "https://koukoukou.cn/","name": "抠抠抠","favicon":""},
+      				{"n":"16","url": "https://www.remove.bg","name": "RemoveBg","favicon":"https://www.remove.bg/favicon.ico"},
+      				{"n":"16","url": "https://waifu2x.udp.jp/index.zh-CN.html","name": "无损放大","favicon":"https://waifu2x.udp.jp/favicon.ico"},
+      				{"n":"16","url": "https://pixian.ai/","name": "图片橡皮擦","favicon":"https://dq2gn5p12glyq.cloudfront.net/p/assets/images/favicon-32x32_ba74eb96b727a34d692363810da9aecb.png"},
+      				{"n":"16","url": "https://www.sandcomp.com","name": "证件照排版","favicon":"https://www.sandcomp.com/favicon.ico"},
+      				{"n":"16","url": "https://github.com/Zeyi-Lin/HivisionIDPhotos/","name": "证件照AI处理","favicon":""},
+					
+      				{"n":"17","url": "https://cn.tradingview.com/chart","name": "TradingView","favicon":"https://cn.tradingview.com/static/images/favicon.ico"},
+      				{"n":"17","url": "https://www.jrj.com.cn","name": "金融界","favicon":"https://www.jrj.com.cn/favicon.ico"},
+      				{"n":"17","url": "https://www.jisilu.cn","name": "集思录","favicon":"https://www.jisilu.cn/favicon.ico"},
+
+      				{"n":"18","url": "https://www.autohome.com.cn","name": "汽车之家","favicon":"https://www.autohome.com.cn/favicon.ico"},
+      				{"n":"18","url": "https://home.duomai.com","name": "多麦广告联盟","favicon":"https://home.duomai.com/duomai.ico"},
+      				{"n":"18","url": "#","name": "Z-Library","favicon":""},
+      				{"n":"18","url": "https://www.freebuf.com","name": "FreeBuf","favicon":"https://www.freebuf.com/favicon.ico"},
+      				{"n":"18","url": "https://www.oschina.net","name": "OSCHINA","favicon":"https://static.oschina.net/new-osc/img/favicon.ico"},
+
+      				{"n":"19","url": "https://zh.snipaste.com","name": "Snipaste","favicon":"https://zh.snipaste.com/favicon.ico"},
+      				{"n":"19","url": "https://iconer.app","name": "Iconer","favicon":"https://iconer.app/favicon-32x32.png"},
+      				{"n":"19","url": "https://www.iconfont.cn","name": "阿里图标库","favicon":"https://img.alicdn.com/imgextra/i2/O1CN01ZyAlrn1MwaMhqz36G_!!6000000001499-73-tps-64-64.ico"},
+      				{"n":"19","url": "https://www.kittl.com","name": "Kittl Logo","favicon":"https://www.kittl.com/favicon.ico"},
+      				{"n":"19","url": "https://wallpaperscraft.com","name": "壁纸","favicon":"https://wallpaperscraft.com/public/img/general/favicon.ico"},
+      				{"n":"19","url": "https://wallhaven.cc","name": "壁纸","favicon":"https://wallhaven.cc/favicon.ico"},
+      				{"n":"19","url": "https://picsum.photos","name": "picsum","favicon":"https://picsum.photos/assets/images/favicon/favicon-32x32.png","remark":"只需在我们的URL后添加所需的图像大小（宽度和高度），您将获得一个随机图像。"},
+
+
+      				{"n":"20","url": "https://emoji.supply/","name": "emoji壁纸","favicon":""},
+      				{"n":"20","url": "https://paper.z2h.cn/","name": "字帖生成","favicon":""},
+      				{"n":"20","url": "https://www.dayin.page/","name": "习题打印生成器","favicon":""},
+      				{"n":"20","url": "https://happypagesai.com/explore","name": "儿童涂色卡","favicon":""},
+      				{"n":"20","url": "https://edui123.com","name": "Edui123","favicon":"https://edui123.com/images/favicon.png","remark":"教学资源汇总"},
+
+
+      				{"n":"22","url": "https://xiunobbs.cn/","name": "Xiuno","favicon":"https://xiunobbs.cn/favicon.ico"},
+
+      				{"n":"23","url": "https://www.7xiazai.com","name": "小兵下载","favicon":"https://www.7xiazai.com/wp-content/uploads/favicon.ico"},
+      				{"n":"23","url": "https://www.ghpym.com","name": "果核剥壳","favicon":"https://www.ghxi.com/favicon.ico"},
+      				{"n":"23","url": "https://www.iplaysoft.com","name": "异次元软件","favicon":"https://cdn.iplaysoft.com/ips/icon/favicon-v1/favicon.ico"},
+      				{"n":"23","url": "https://www.deepl.com","name": "Deepl翻译","favicon":"https://static.deepl.com/img/favicon/favicon_32.png"},
+      				{"n":"23","url": "https://translate.google.com.hk/","name": "谷歌翻译","favicon":"https://ssl.gstatic.com/translate/favicon.ico"},
+      				
+					{"n":"24","url": "https://fish.audio/","name": "文本转语音","favicon":""},
+					{"n":"24","url": "https://tools.rotato.app/","name": "视频压缩","favicon":""},
+      				{"n":"24","url": "http://www.mp4tools.com","name": "mp4 Web","favicon":"","remark":"浏览器上 MP4 视频的转换服务。"},
+      				{"n":"24","url": "https://www.clipconverter.cc/","name": "Converter ","favicon":"https://www.clipconverter.cc/images/favicon.ico"},
+      				{"n":"24","url": "https://mp3cut.net/cn/","name": "Web Apps","favicon":"https://time.is/favicon.ico"},
+      				{"n":"24","url": "https://cdkm.com/cn","name": "File Converter","favicon":"https://cdkm.com/favicon.ico"},
+
+      				{"n":"25","url": "https://keir.net","name": "Hash","favicon":"https://keir.net/favicon.ico"},
+      				{"n":"25","url": "https://xiaomark.com","name": "小码短链接","favicon":"","remark":"可统计访问数据的短链接生成器，运营工具大全 xiaomark.com/tool"},
+      				{"n":"25","url": "https://xsgames.co/devassets","name": "Free Tool","favicon":"https://xsgames.co/devassets/assets/images/favicon.png","remark":"一些免费的工具，有调色辅助等工具"},
+      				{"n":"25","url": "https://umami.is/","name": "umami","favicon":""},
+      				{"n":"25","url":"https://otp.landian.vip","name": "OfficeTP","favicon":"https://otp.landian.vip/static/images/logo.ico","remark":"一个用于部署、激活 Office、Visio、Project 的小工具。"},
+					
+      				{"n":"26","url":"https://massgrave.dev/","name": "MAS","favicon":"https://massgrave.dev/img/favicon.ico","remark":""},
+      				{"n":"26","url":"https://www.kms.pub/index.html","name": "KMS","favicon":"https://www.kms.pub/favicon.ico"},
+      				{"n":"26","url":"https://www.coolhub.top/tech-articles/kms_list.html","name": "KMS 地址列表","favicon":"https://www.coolhub.top/favicon.ico"},
+      				{"n":"26","url":"https://github.com/netnr/kms","name": "KMS","favicon":"https://kms.zme.ink/favicon.ico","remark":"KMS 激活服务，slmgr 命令激活 Windows 系统、Office https://kms.zme.ink"},
+      				{"n":"26","url":"https://windsys.win","name": "Windsys Pr","favicon":"https://windsys.win/favicon-32x32.png","remark":"第三方社区操作系统"},
+      				{"n":"26","url":"https://next.itellyou.cn","name": "ITELLYOU","favicon":"https://next.itellyou.cn/favicon.ico","remark":"2007年开始，坚持只做一件事。原版服务，从未夹私暗度陈仓。我告诉你，从未忘记这份信赖。"},
+      				{"n":"26","url":"https://archive.org/search?query=creator%3A%22NTDEV%22&sort=-date","name": "tiny11 by NTDEV","favicon":"https://archive.org/offshoot_assets/favicon.ico","remark":"一个修改版的系统"},
+
+      				{"n":"27","url":"https://www.wepe.com.cn","name": "微PE","favicon":"https://www.wepe.com.cn/favicon.ico","remark":"跨时代的PE工具箱，装机维护得力的助手，最后的救命稻草。"},
+      				{"n":"27","url":"https://firpe.cn/","name": "FirPE","favicon":"https://firpe.cn/wp-content/uploads/2020/08/cropped-MetroUI_Windows_256px_1121942_easyicon.net_-300x300.png","remark":"也许是最适合年轻人使用的WinPE系统"},
+      				{"n":"27","url":"https://www.stationpc.cn","name": "Station Pc","favicon":"https://www.stationpc.cn/assets/favicon.c203d0a2.ico","remark":"娱乐迷你主机"},
+      				{"n":"27","url":"https://greasyfork.org/zh-CN","name": "Greasy Fork","favicon":"https://greasyfork.org/vite/assets/blacklogo16-bc64b9f7.png","remark":"这里是一个提供用户脚本的网站。"},
+      				{"n":"27","url":"https://atlasos.net/","name": "AtlasOS","favicon":"","remark":"精简版win10"},
+
+      				{"n":"28","url":"https://9.234456.xyz/abc.html","name": "9.234456","favicon":"https://raw.githubusercontent.com/2dust/v2rayN/master/v2rayN/v2rayN/Resources/NotifyIcon1.ico"},
+      				{"n":"28","url":"https://ipleak.net","name": "IP/DNS Detect","favicon":"https://ipleak.net/favicon.ico"},
+
+      				{"n":"29","url":"https://www.random.org","name": "Random","favicon":"https://www.random.org/graphics/touch/app-touch-72x72.png"},
+      				{"n":"29","url":"https://www.lubanchi.cn","name": "鲁班尺","favicon":"https://www.lubanchi.cn/favicon.ico"},
+      				{"n":"29","url":"http://bzdt.ch.mnr.gov.cn","name": "标准地图","favicon":""},
+
+
+      				{"n":"30","url":"https://nodejs.org/","name": "Node.js","favicon":"https://nodejs.org/static/images/favicons/favicon.png"},
+      				{"n":"30","url":"https://www.npmjs.cn/","name": "NPM","favicon":"https://www.npmjs.cn/images/favicon.ico"},
+      				{"n":"30","url":"https://www.pnpm.cn/","name": "PNPM","favicon":"https://www.pnpm.cn/img/favicon.png"},
+      				{"n":"30","url":"https://www.yarnpkg.cn/","name": "Yarn","favicon":"https://www.yarnpkg.cn/favicon-32x32.png"},
+      				{"n":"30","url":"https://www.webpackjs.com/","name": "Webpack","favicon":"https://www.webpackjs.com/icon_192x192.png"},
+      				{"n":"30","url":"https://www.parceljs.cn/","name": "Parcel","favicon":"https://www.parceljs.cn/assets/favicon.ico"},
+      				{"n":"30","url":"https://www.rollupjs.com/","name": "Rollup","favicon":"https://www.rollupjs.com/img/favicon.png"},
+
+      				{"n":"31","url":"https://www.babeljs.cn/","name": "Babel","favicon":"https://www.babeljs.cn/img/favicon.png"},
+      				{"n":"31","url":"https://www.sveltejs.cn/","name": "Svelte","favicon":"https://www.svelte.cn/favicon.png"},
+      				{"n":"31","url":"https://www.nextjs.cn/","name": "Next.js","favicon":"https://www.nextjs.cn/static/favicon/favicon-32x32.png"},
+      				{"n":"31","url":"https://www.gatsbyjs.cn/","name": "Gatsby","favicon":""},
+      				{"n":"31","url":"https://www.docusaurus.cn/","name": "Docusaurus","favicon":"https://www.docusaurus.cn/img/docusaurus.png"},
+      				{"n":"31","url":"https://www.denojs.cn/","name": "Deno","favicon":"https://www.denojs.cn/img/favicon.ico"},
+      				{"n":"31","url":"https://nuejs.org/","name": "Nue","favicon":""},
+
+      				{"n":"32","url":"https://www.wasm.com.cn/","name": "WebAssembly","favicon":""},
+      				{"n":"32","url":"https://www.markdown.xyz/","name": "MarkDown","favicon":""},
+      				{"n":"32","url":"https://www.mdxjs.cn/","name": "MDX","favicon":""},
+      				{"n":"32","url":"https://www.jquery123.com/","name": "jQuery","favicon":"https://www.jquery123.com/assets/images/favicon.ico"},
+      				{"n":"32","url": "https://www.jq22.com","name": "jQuery插件库","favicon":"https://www.jq22.com/favicon.ico"},
+      				{"n":"32","url": "https://phind.com/","name": "Phind AI","favicon":"https://phind.com/favicon.ico","remark":"需要过墙，面向开发人员的 AI 搜索引擎。"},
+      				{"n":"32","url":"https://www.bootcss.com/","name": "Bootstrap中文网","favicon":"https://www.bootcss.com/assets/favicons/favicon.ico"},
+
+      				{"n":"33","url": "https://www.code-nav.cn/","name": "编程导航","favicon":""},
+      				{"n":"33","url": "https://www.sojson.com","name": "sojson","favicon":"https://cdn.sojson.com/sojson/favicon32.png"},
+      				{"n":"33","url": "https://www.workerman.net","name": "Workerman","favicon":"https://www.workerman.net/favicon.ico"},
+      				{"n":"33","url": "http://www.websocket-test.com","name": "WebSocket","favicon":""},
+      				{"n":"33","url": "https://github.com/SortableJS/Sortable","name": "Sortable.js","favicon":"https://sortablejs.github.io/Sortable/st/og-image.png"},
+      				{"n":"33","url": "https://www.tailwindcss.cn","name": "Tailwind","favicon":"https://www.tailwindcss.cn/favicon-32x32.png"},
+      				{"n":"33","url": "https://unpkg.com/","name": "UNPKG","favicon":"https://unpkg.com/favicon.ico"},
+
+      				{"n":"34","url":"https://111666.best/","name": "111666图床","favicon":""},
+      				{"n":"34","url":"https://www.ax1x.com/","name": "路过图床","favicon":"","remark":"imgse.com"},
+      				{"n":"34","url":"https://mjj.today/","name": "mjj图","favicon":"","remark":"免费图床 图片上传分享"},
+      				{"n":"34","url":"https://img.one/","name": "一图","favicon":""},
+      				{"n":"34","url":"https://3o.hk/","name": "3o图","favicon":""},
+      				{"n":"34","url":"https://grapesjs.com/","name": "JS css","favicon":""},
+      				{"n":"34","url":"https://javascript.sumankunwar.com.np/","name": "JavaScript 学习","favicon":"","remark":"主页是一个在线的ubuntu系统"},
+					
+					{"n":"35","url": "https://www.dcloud.io","name": "DCloud","favicon":"https://ask.dcloud.net.cn/static/css/classblack/img/favicon.png","remark":"HBuilder X极客开发工具"},
+      				];
+
+      const groupTitles = {
+        '112': '[图床]',
+        '211': '[太阳]',
+        '212': '[月亮]',
+        '213': '[星星]'
+      };
+
+      function loadFavicon(img) {
+        const src = img.getAttribute('data-src');
+        if (src) {
+          const favicon = new Image();
+          favicon.onload = () => {
+            img.src = src;
+            img.classList.remove('loading');
+          };
+          favicon.src = src;
+        }
+      }
+
+      const main = document.getElementById('main');
+
+      const createLinkGroup = (group) => {
+        const div = document.createElement('div');
+        div.className = 'link-group hidden dark:bg-gray-950 dark:text-gray-100';
+        main.append(div);
+
+        const ul = document.createElement('ul');
+        ul.className = 'link-list';
+        div.appendChild(ul);
+
+        const titleLi = document.createElement('li');
+        titleLi.className = 'text-center text-sm';
+        titleLi.innerText = group.title;
+        ul.appendChild(titleLi);
+
+        group.links.forEach((link) => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a target="_blank" href="${link.url}" target="_blank"><img class="h-6 favicon loading" data-src="${link.favicon || (link.url + "/favicon.ico")}" alt=""><div class="name dark:text-gray-100">${link.name}${link.remark ? `<span>${link.remark}</span>` : ''}</div></a>`;
+          ul.append(li);
+        });
+      };
+
+      const groups = data.reduce((acc, cur) => {
+        const title = groupTitles[cur.n] || `[${cur.n}]`;
+        if (acc[cur.n] == null) {
+          acc[cur.n] = {
+            title,
+            links: [],
+          };
+        }
+        acc[cur.n].links.push(cur);
+        return acc;
+      }, {});
+
+      for (const [n, group] of Object.entries(groups)) {
+        createLinkGroup(group);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loadFavicon(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+      });
+
+      const imgs = document.querySelectorAll('.favicon');
+      imgs.forEach((img) => {
+        observer.observe(img);
+      });
+
+      // 检索功能实现
+       const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', () => {
+          if (searchInput.textContent.includes('.')) {
+        jjss()
+          }
+
+        });
+
+        function changeText() {
+ var cdark = document.getElementById("cdark");
+    var currentText = cdark.innerHTML;
+
+    if (currentText === "太阳") {
+      cdark.innerHTML = "月亮";  document.documentElement.classList.add('dark');
+
+    } else if (currentText === "月亮") {
+      cdark.innerHTML = "太阳";  document.documentElement.classList.remove('dark');
+
+    }
 }
+ 
+      function jjss(){
+               const keywords = searchInput.textContent.trim().split(/\s+/); // 分割搜索词
+          for (const div of main.children) {
+            let hasVisibleLinks = false;
+            for (const li of div.querySelector('.link-list').children) {
+              const nameEl = li.querySelector('.name');
+              const hrefEl = li.querySelector('a');
+              if (!nameEl || !hrefEl) {
+                continue;
+              }
+              const linkName = nameEl.textContent.trim();
+              const href = hrefEl.getAttribute('href').trim();
+              let isMatched = false;
+              for (const keyword of keywords) {
+                if (linkName.includes(keyword) || href.includes(keyword)) { // 匹配
+                  isMatched = true;
+                  break;
+                }
+              }
+              if (isMatched) {
+                li.classList.remove('hidden');
+                hasVisibleLinks = true;
+              } else {
+                li.classList.add('hidden');
+              }
+            }
+            if (!hasVisibleLinks) {
+              div.classList.add('hidden');
+            } else {
+              div.classList.remove('hidden');
+            }
+          }
+      }
+  </script>
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2b286e5675984fcd83980d1941cccb1a"}'></script><!-- Cloudflare Pages Analytics --></body>
 
-print 'Sorted in ' + i + ' iterations.';</code></pre>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Lists</h3>
-								</header>
-								<div class="content">
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Table</h3>
-								</header>
-								<div class="content">
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Buttons</h3>
-								</header>
-								<div class="content">
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button large">Large</a></li>
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</div>
-							</section>
-
-							<section>
-								<header>
-									<h3>Form</h3>
-								</header>
-								<div class="content">
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</div>
-							</section>
-
-						</div>
-					</section>
-				-->
-
-				<!-- Section -->
-					<section>
-						<header>
-							<h2>Get in touch</h2>
-						</header>
-						<div class="content">
-							<p><strong>Auctor commodo</strong> interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis.</p>
-							<form>
-								<div class="fields">
-									<div class="field half">
-										<input type="text" name="name" id="name" placeholder="Name" />
-									</div>
-									<div class="field half">
-										<input type="email" name="email" id="email" placeholder="Email" />
-									</div>
-									<div class="field">
-										<textarea name="message" id="message" placeholder="Message" rows="7"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" class="button primary" /></li>
-								</ul>
-							</form>
-						</div>
-						<footer>
-							<ul class="items">
-								<li>
-									<h3>Email</h3>
-									<a href="#">information@untitled.ext</a>
-								</li>
-								<li>
-									<h3>Phone</h3>
-									<a href="#">(000) 000-0000</a>
-								</li>
-								<li>
-									<h3>Address</h3>
-									<span>1234 Somewhere Road, Nashville, TN 00000</span>
-								</li>
-								<li>
-									<h3>Elsewhere</h3>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="#" class="icon brands fa-codepen"><span class="label">Codepen</span></a></li>
-									</ul>
-								</li>
-							</ul>
-						</footer>
-					</section>
-
-				<!-- Copyright -->
-					<div class="copyright">&copy; Untitled. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
 </html>
