@@ -1,497 +1,679 @@
 
-
-
 <!DOCTYPE html>
+
 <html>
 
-<head>
-  <meta charset="utf-8" />
-  <title>吃饱饱</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
-  <link rel="stylesheet" href="./output.css">
-  <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      color: #fff;
-      text-align: center;
-      padding: 1px;
-      font-size: 30px;
-      text-align: -webkit-center;
-    }
-
-    /* 添加媒体查询 */
-    @media screen and (max-width: 600px) {
-      header {
-        font-size: 16px;
-        padding: 5px;
-      }
-    }
-
-    .search-box {
-      margin: 10px auto;
-      width: 80%;
-      max-width: 800px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .search-box input {
-      flex: 1;
-      border: none;
-      border-radius: 5px;
-      padding: 8px;
-      margin-right: 10px;
-      font-size: 14px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 24px;
-      text-align: center;
-      padding: 10px;
-    }
-
-    main {
-      padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 69rem;
-      align-items: flex-start;
-      justify-content: center;
-    }
-
-    .link-group {
-      margin: 10px;
-      width: 123px;
-      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-      border-radius: 5px;
-    }
-
-
-    .link-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .link-list li {
-      margin: 1px;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .link-list li a {
-      display: flex;
-      align-items: center;
-      padding: 3px;
-      text-decoration: none;
-      color: #333;
-      font-size: 16px;
-    }
-
-    .name:hover {
-      border-radius: 5px;
-      text-align: center;
-    }
-
-    .link-list li img {
-    }
-
-    .link-list li .name {
-      flex-grow: 1;
-      margin-left: 5px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .name {
-      text-align: left;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .name span {
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      padding: 3px;
-      display: none;
-    }
-
-    .name:hover span {
-      position: absolute;
-      margin: 10px;
-      background: #ccddcc;
-      border: 1px solid #ccddcc;
-      font-size: 14px;
-      max-width: 100px;
-      padding: 3px;
-      white-space: normal;
-      display: block;
-    }
-
-    .loading {
-      display: inline-block;
-      background: url('bookmark.png') no-repeat center/cover;
-    }
-
-    /* 添加媒体查询 */
-    @media screen and (max-width: 600px) {
-      .link-list li .name {
-        font-size: 10px;
-      }
-    }
-
-    /* 隐藏元素 */
-    .hidden {
-      display: none;
-    }
-  </style>
-</head>
-
-<body class="dark:bg-gray-900">
-  <header class="bg-gray-900">
-    <h2 id="search-input" contenteditable style="width: fit-content;">. 好 开 心 QJHY.</h2>
-    <div class="m-3 text-sm dark:text-gray-100" id="cdark" onclick="changeText()">太阳</div>
-  </header>
-  <main id="main"></main>
-
-  <div class="search-box">
-    <div class="overflow-hidden rounded-lg bg-gray-100">
-      <img src="https://picsum.photos/666/333" id="imim" class="h-auto w-full" style="border-radius: 10px;" />
-
-      <div class="p-4">
-        <h3 class="mb-2 text-lg font-medium">「独黑合白」「大小小大」「五行波色」</h3>
-        <p class=""> 「已有的事后必再有；已行的事后必再行。日光之下并无新事。」</p>
-        <p class="">「岂有一件事人能指着说这是新的？哪知，在我们以前的世代早已有了。」</p>
-
-        <p class="">「已过的世代，无人记念；将来的世代，后来的人也不记念。」</p>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <span style="font-size:small"
-        >2023<a target="_blank" href="https://beian.miit.gov.cn" style="color:#000000; text-decoration:none;">备20247777777</a> All rights  reserved.</span>
-        <span id="kkee"><svg width="16" height="16" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 13v8"></path><path d="M8 13v8"></path><path d="M12 15v8"></path><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path></svg></span>
-  </footer>
-  <script>
-    var count = 0;                          // 计数器，用于记录执行次数
-      var intervalId = setInterval(function() {
-        count++;                              // 执行次数加 1
-        var image = document.getElementById('imim');  // 获取 imim 元素
-        var timestamp = new Date().getTime();       // 创建一个时间戳
-        var newSrc = image.src.split('?')[0] + '?' + timestamp;  // 将时间戳附加到原始图片 URL 上
-        image.src = newSrc;                          // 加载新的图片
-        // 在这里编写需要重复执行的代码
-        // console.log('第 ' + count + ' 次执行');
-
-        if (count >= 12) {                    // 执行次数达到 10 次时退出循环
-          clearInterval(intervalId);         // 清除定时器
-        }
-      }, 10000);
-  </script>
-
-  <script>
-    const data =[
-      				{"n":"1","url": "/666.html","name": "兔年大吉","favicon":""},
-      				{"n":"1","url": "https://www.windy.com","name": "Windy Map","favicon":"https://www.windy.com/favicon.ico"},
-
-      				{"n":"2","url": "https://caiyunapp.com/h5/","name": "天气","favicon":"https://caiyunapp.com/imgs/logo.png"},
-      				{"n":"2","url": "https://open.163.com/","name": "网易公开课","favicon":""},
-      				{"n":"2","url": "https://www.smartedu.cn/","name": "国家教育","favicon":""},
-					{"n":"2","url": "https://textbook.synaiv.com/","name": "中文教科书","favicon":""},
-      				{"n":"2","url": "https://zh.khanacademy.org/","name": "可汗学院","favicon":"https://cdn.kastatic.org/images/favicon.ico"},
-      				{"n":"2","url": "https://u.jd.com/rLbdAKj","name": "京东","favicon":"https://www.jd.com/favicon.ico"},
-
-      				{"n":"3","url": "https://www.ithome.com","name": "IT之家","favicon":"https://www.ithome.com/favicon.ico","remark": "IT之家，青岛软媒旗下的前沿科技门户网站。"},
-      				{"n":"3","url": "https://www.toutiao.com","name": "今日头条","favicon":"https://sf3-cdn-tos.douyinstatic.com/obj/eden-cn/uhbfnupkbps/toutiao_favicon.ico"},
-      				{"n":"3","url": "https://www.163.com","name": "网易","favicon":"https://www.163.com/favicon.ico"},
-      				{"n":"3","url": "https://www.gcores.com","name": "机核","favicon":"https://www.gcores.com/favicon.ico"},
-      				{"n":"3","url": "https://www.v2ex.com","name": "V2EX","favicon":"https://www.v2ex.com/static/favicon.ico"},
-      				{"n":"3","url": "https://www.jianshu.com","name": "简书","favicon":"https://cdn2.jianshu.io/assets/favicons/favicon-e743bfb1821442341c3ab15bdbe804f7ad97676bd07a770ccc9483473aa76f06.ico"},
-
-      				{"n":"4","url": "https://tophub.today/c/blog","name": "博客集合","favicon":"https://tophub.today/favicon.ico"},
-      				{"n":"4","url": "https://youquhome.com/","name": "有趣网址","favicon":""},
-					{"n":"4","url": "https://www.github-zh.com/","name": "Github-zh","favicon":""},
-      				{"n":"4","url": "https://hellogithub.com","name": "HelloGithub","favicon":"https://hellogithub.com/favicon/apple-icon-57x57.png"},
-      				{"n":"4","url": "https://www.producthunt.com/","name": "Top app","favicon":""},
-
-      				{"n":"5","url": "https://chat18.aichatos8.com/","name": "AIchatOS","favicon":""},
-      				{"n":"5","url": "https://chat2.aiyunos.top","name": "AIchatOS","favicon":""},
-      				{"n":"5","url": "https://chatforai.com","name": "Chat For AI","favicon":""},
-      				{"n":"5","url": "https://devv.ai/","name": "Devv Ai","favicon":""},
-      				{"n":"5","url": "https://github.com/xx025/carrot","name": "汇总cc.ai55.cc","favicon":"https://chat.openai.com/favicon-16x16.png"},
-
-      				{"n":"6","url": "https://www.webscan.cc/","name": "同一网站查询","favicon":""},
-      				{"n":"6","url": "https://simpread.pro","name": "简悦","favicon":"https://simpread-1254315611.file.myqcloud.com/favicon/apple-icon-57x57.png"},
-      				{"n":"6","url": "https://immersive-translate.owenyoung.com/","name": "沉浸式翻译","favicon":"https://immersive-translate.owenyoung.com/favicon.svg"},
-      				{"n":"6","url": "https://zh-cn.libreoffice.org/","name": "libreoffice","favicon":""},
-					
-      				{"n":"7","url": "https://excalidraw.com","name": "Excali draw","favicon":"https://excalidraw.com/logo-180x180.png"},
-      				{"n":"7","url": "https://pastebin.com/","name": "pastebin","favicon":""},
-      				{"n":"7","url": "https://note.ms","name": "Note","favicon":"https://note.ms/meta/favicon.png"},
-      				{"n":"7","url": "https://telegra.ph","name": "Telegraph","favicon":"https://telegra.ph/favicon.ico","remark":"Telegra.ph是一个简约的发布工具，允许你创建格式丰富的帖子，只需点击一下就能推送到网上。Telegraph帖子还可以在Telegram上获得漂亮的即时浏览页面"},
-      				{"n":"7","url": "https://www.telsearch.me","name": "Telsearch","favicon":"https://www.telsearch.me/logo.png"},
-
-      				{"n":"8","url": "https://www.a.cool/","name": "阿酷导航","favicon":""},
-      				{"n":"8","url": "https://www.ahhhhfs.com/","name": "A姐分享","favicon":""},
-      				{"n":"8","url": "https://www.dogged.cn/","name": "顽狗文件加密","favicon":""},
-      				{"n":"8","url": "https://time.is","name": "Time.is","favicon":"https://time.is/favicon.ico"},
-
-
-
-      				{"n":"9","url": "https://www.hifini.com","name": "HIFI音乐","favicon":"https://www.hifini.com/view/img/favicon.ico"},
-					
-
-      				{"n":"10","url": "https://www.ixigua.com","name": "西瓜视频","favicon":"https://sf1-cdn-tos.douyinstatic.com/obj/eden-cn/lpqpflo/ixigua_favicon.ico"},
-      				{"n":"10","url": "https://hdmoli.com/","name": "HDmoli","favicon":""},
-      				{"n":"10","url": "https://ddys.info/","name": "DD影视","favicon":"https://ddys.art/favicon-16x16.png"},
-      				{"n":"10","url": "https://www.youtube.com","name": "YTb","favicon":"https://www.youtube.com/s/desktop/f8e3757f/img/favicon.ico"},
-
-      				{"n":"11","url": "https://www.domp4.cc","name": "MP4下载","favicon":"https://www.domp4.cc/favicon.ico"},
-      				{"n":"11","url": "https://www.dy2018.com","name": "电影天堂","favicon":"https://www.dy2018.com/favicon.ico"},
-      				{"n":"11","url": "https://www.btdig.com","name": "btdigg","favicon":"https://www.btdig.com/favicon.ico"},
-      				{"n":"11","url": "https://m3u8play.com","name": "M3u8","favicon":"https://m3u8play.com/static/static/logo5.png"},
-      				{"n":"11","url": "https://piped.video/","name": "YTb镜像","favicon":""},
-
-
-      				{"n":"12","url": "https://www.mhhf.com","name": "灵动游戏","favicon":"https://www.mhhf.com/img/favicon.ico"},
-      				{"n":"12","url": "https://dos.zczc.cz","name": "在线DOS游戏","favicon":"https://dos.zczc.cz/favicon.ico"},
-      				{"n":"12","url": "https://clicktheredbutton.com/","name": "随机小游戏","favicon":""},
-					
-      				{"n":"13","url": "https://armorgames.com/","name": "ArmorGames","favicon":"https://armorgames.com/favicon-16x16.png"},
-      				{"n":"13","url": "https://poki.cn","name": "poki小游戏","favicon":"https://a.poki.com/img/favicon.ico"},
-      				{"n":"13","url": "https://lagged.com","name": "Lagged小游戏","favicon":"https://lagged.com/images/icon/144x144.png"},
-      				{"n":"13","url": "https://yandex.com/games/","name": "yandex Game","favicon":"https://yastatic.net/s3/games-static/favicons/favicon.ico"},
-      				{"n":"13","url": "https://www.crazygames.com/","name": "CrazyGames","favicon":"https://images.crazygames.com/favicons/favicon-2-32x32.png"},
-
-      				{"n":"14","url": "https://www.myenglishpages.com","name": "英语手册","favicon":"https://www.myenglishpages.com/images/icons/favicon.ico"},
-					
-      				{"n":"15","url": "https://github.com/itsyebekhe/HiN-VPN/","name": "HIN-VPN","favicon":""},
-      				{"n":"15","url": "https://openproxylist.com/","name": "Poen Proxy","favicon":""},
-      				{"n":"15","url": "https://matsuridayo.github.io/","name": "nekoray","favicon":""},	
-      				{"n":"15","url": "https://gui-for-cores.github.io/","name": "SingBoxGui","favicon":""},	
-
-      				{"n":"16","url": "https://tinypng.com","name": "TinyPNG","favicon":"https://tinypng.com/images/favicon.ico"},
-      				{"n":"16","url": "https://koukoukou.cn/","name": "抠抠抠","favicon":""},
-      				{"n":"16","url": "https://www.remove.bg","name": "RemoveBg","favicon":"https://www.remove.bg/favicon.ico"},
-      				{"n":"16","url": "https://waifu2x.udp.jp/index.zh-CN.html","name": "无损放大","favicon":"https://waifu2x.udp.jp/favicon.ico"},
-      				{"n":"16","url": "https://pixian.ai/","name": "图片橡皮擦","favicon":"https://dq2gn5p12glyq.cloudfront.net/p/assets/images/favicon-32x32_ba74eb96b727a34d692363810da9aecb.png"},
-      				{"n":"16","url": "https://www.sandcomp.com","name": "证件照排版","favicon":"https://www.sandcomp.com/favicon.ico"},
-      				{"n":"16","url": "https://github.com/Zeyi-Lin/HivisionIDPhotos/","name": "证件照AI处理","favicon":""},
-					
-      				{"n":"17","url": "https://cn.tradingview.com/chart","name": "TradingView","favicon":"https://cn.tradingview.com/static/images/favicon.ico"},
-      				{"n":"17","url": "https://www.jrj.com.cn","name": "金融界","favicon":"https://www.jrj.com.cn/favicon.ico"},
-      				{"n":"17","url": "https://www.jisilu.cn","name": "集思录","favicon":"https://www.jisilu.cn/favicon.ico"},
-
-      				{"n":"18","url": "https://www.autohome.com.cn","name": "汽车之家","favicon":"https://www.autohome.com.cn/favicon.ico"},
-      				{"n":"18","url": "https://home.duomai.com","name": "多麦广告联盟","favicon":"https://home.duomai.com/duomai.ico"},
-      				{"n":"18","url": "#","name": "Z-Library","favicon":""},
-      				{"n":"18","url": "https://www.freebuf.com","name": "FreeBuf","favicon":"https://www.freebuf.com/favicon.ico"},
-      				{"n":"18","url": "https://www.oschina.net","name": "OSCHINA","favicon":"https://static.oschina.net/new-osc/img/favicon.ico"},
-
-      				{"n":"19","url": "https://zh.snipaste.com","name": "Snipaste","favicon":"https://zh.snipaste.com/favicon.ico"},
-      				{"n":"19","url": "https://iconer.app","name": "Iconer","favicon":"https://iconer.app/favicon-32x32.png"},
-      				{"n":"19","url": "https://www.iconfont.cn","name": "阿里图标库","favicon":"https://img.alicdn.com/imgextra/i2/O1CN01ZyAlrn1MwaMhqz36G_!!6000000001499-73-tps-64-64.ico"},
-      				{"n":"19","url": "https://www.kittl.com","name": "Kittl Logo","favicon":"https://www.kittl.com/favicon.ico"},
-      				{"n":"19","url": "https://wallpaperscraft.com","name": "壁纸","favicon":"https://wallpaperscraft.com/public/img/general/favicon.ico"},
-      				{"n":"19","url": "https://wallhaven.cc","name": "壁纸","favicon":"https://wallhaven.cc/favicon.ico"},
-      				{"n":"19","url": "https://picsum.photos","name": "picsum","favicon":"https://picsum.photos/assets/images/favicon/favicon-32x32.png","remark":"只需在我们的URL后添加所需的图像大小（宽度和高度），您将获得一个随机图像。"},
-
-
-      				{"n":"20","url": "https://emoji.supply/","name": "emoji壁纸","favicon":""},
-      				{"n":"20","url": "https://paper.z2h.cn/","name": "字帖生成","favicon":""},
-      				{"n":"20","url": "https://www.dayin.page/","name": "习题打印生成器","favicon":""},
-      				{"n":"20","url": "https://happypagesai.com/explore","name": "儿童涂色卡","favicon":""},
-      				{"n":"20","url": "https://edui123.com","name": "Edui123","favicon":"https://edui123.com/images/favicon.png","remark":"教学资源汇总"},
-
-
-      				{"n":"22","url": "https://xiunobbs.cn/","name": "Xiuno","favicon":"https://xiunobbs.cn/favicon.ico"},
-
-      				{"n":"23","url": "https://www.7xiazai.com","name": "小兵下载","favicon":"https://www.7xiazai.com/wp-content/uploads/favicon.ico"},
-      				{"n":"23","url": "https://www.ghpym.com","name": "果核剥壳","favicon":"https://www.ghxi.com/favicon.ico"},
-      				{"n":"23","url": "https://www.iplaysoft.com","name": "异次元软件","favicon":"https://cdn.iplaysoft.com/ips/icon/favicon-v1/favicon.ico"},
-      				{"n":"23","url": "https://www.deepl.com","name": "Deepl翻译","favicon":"https://static.deepl.com/img/favicon/favicon_32.png"},
-      				{"n":"23","url": "https://translate.google.com.hk/","name": "谷歌翻译","favicon":"https://ssl.gstatic.com/translate/favicon.ico"},
-      				
-					{"n":"24","url": "https://fish.audio/","name": "文本转语音","favicon":""},
-					{"n":"24","url": "https://tools.rotato.app/","name": "视频压缩","favicon":""},
-      				{"n":"24","url": "http://www.mp4tools.com","name": "mp4 Web","favicon":"","remark":"浏览器上 MP4 视频的转换服务。"},
-      				{"n":"24","url": "https://www.clipconverter.cc/","name": "Converter ","favicon":"https://www.clipconverter.cc/images/favicon.ico"},
-      				{"n":"24","url": "https://mp3cut.net/cn/","name": "Web Apps","favicon":"https://time.is/favicon.ico"},
-      				{"n":"24","url": "https://cdkm.com/cn","name": "File Converter","favicon":"https://cdkm.com/favicon.ico"},
-
-      				{"n":"25","url": "https://keir.net","name": "Hash","favicon":"https://keir.net/favicon.ico"},
-      				{"n":"25","url": "https://xiaomark.com","name": "小码短链接","favicon":"","remark":"可统计访问数据的短链接生成器，运营工具大全 xiaomark.com/tool"},
-      				{"n":"25","url": "https://xsgames.co/devassets","name": "Free Tool","favicon":"https://xsgames.co/devassets/assets/images/favicon.png","remark":"一些免费的工具，有调色辅助等工具"},
-      				{"n":"25","url": "https://umami.is/","name": "umami","favicon":""},
-      				{"n":"25","url":"https://otp.landian.vip","name": "OfficeTP","favicon":"https://otp.landian.vip/static/images/logo.ico","remark":"一个用于部署、激活 Office、Visio、Project 的小工具。"},
-					
-      				{"n":"26","url":"https://massgrave.dev/","name": "MAS","favicon":"https://massgrave.dev/img/favicon.ico","remark":""},
-      				{"n":"26","url":"https://www.kms.pub/index.html","name": "KMS","favicon":"https://www.kms.pub/favicon.ico"},
-      				{"n":"26","url":"https://www.coolhub.top/tech-articles/kms_list.html","name": "KMS 地址列表","favicon":"https://www.coolhub.top/favicon.ico"},
-      				{"n":"26","url":"https://github.com/netnr/kms","name": "KMS","favicon":"https://kms.zme.ink/favicon.ico","remark":"KMS 激活服务，slmgr 命令激活 Windows 系统、Office https://kms.zme.ink"},
-      				{"n":"26","url":"https://windsys.win","name": "Windsys Pr","favicon":"https://windsys.win/favicon-32x32.png","remark":"第三方社区操作系统"},
-      				{"n":"26","url":"https://next.itellyou.cn","name": "ITELLYOU","favicon":"https://next.itellyou.cn/favicon.ico","remark":"2007年开始，坚持只做一件事。原版服务，从未夹私暗度陈仓。我告诉你，从未忘记这份信赖。"},
-      				{"n":"26","url":"https://archive.org/search?query=creator%3A%22NTDEV%22&sort=-date","name": "tiny11 by NTDEV","favicon":"https://archive.org/offshoot_assets/favicon.ico","remark":"一个修改版的系统"},
-
-      				{"n":"27","url":"https://www.wepe.com.cn","name": "微PE","favicon":"https://www.wepe.com.cn/favicon.ico","remark":"跨时代的PE工具箱，装机维护得力的助手，最后的救命稻草。"},
-      				{"n":"27","url":"https://firpe.cn/","name": "FirPE","favicon":"https://firpe.cn/wp-content/uploads/2020/08/cropped-MetroUI_Windows_256px_1121942_easyicon.net_-300x300.png","remark":"也许是最适合年轻人使用的WinPE系统"},
-      				{"n":"27","url":"https://www.stationpc.cn","name": "Station Pc","favicon":"https://www.stationpc.cn/assets/favicon.c203d0a2.ico","remark":"娱乐迷你主机"},
-      				{"n":"27","url":"https://greasyfork.org/zh-CN","name": "Greasy Fork","favicon":"https://greasyfork.org/vite/assets/blacklogo16-bc64b9f7.png","remark":"这里是一个提供用户脚本的网站。"},
-      				{"n":"27","url":"https://atlasos.net/","name": "AtlasOS","favicon":"","remark":"精简版win10"},
-
-      				{"n":"28","url":"https://9.234456.xyz/abc.html","name": "9.234456","favicon":"https://raw.githubusercontent.com/2dust/v2rayN/master/v2rayN/v2rayN/Resources/NotifyIcon1.ico"},
-      				{"n":"28","url":"https://ipleak.net","name": "IP/DNS Detect","favicon":"https://ipleak.net/favicon.ico"},
-
-      				{"n":"29","url":"https://www.random.org","name": "Random","favicon":"https://www.random.org/graphics/touch/app-touch-72x72.png"},
-      				{"n":"29","url":"https://www.lubanchi.cn","name": "鲁班尺","favicon":"https://www.lubanchi.cn/favicon.ico"},
-      				{"n":"29","url":"http://bzdt.ch.mnr.gov.cn","name": "标准地图","favicon":""},
-
-
-      				{"n":"30","url":"https://nodejs.org/","name": "Node.js","favicon":"https://nodejs.org/static/images/favicons/favicon.png"},
-      				{"n":"30","url":"https://www.npmjs.cn/","name": "NPM","favicon":"https://www.npmjs.cn/images/favicon.ico"},
-      				{"n":"30","url":"https://www.pnpm.cn/","name": "PNPM","favicon":"https://www.pnpm.cn/img/favicon.png"},
-      				{"n":"30","url":"https://www.yarnpkg.cn/","name": "Yarn","favicon":"https://www.yarnpkg.cn/favicon-32x32.png"},
-      				{"n":"30","url":"https://www.webpackjs.com/","name": "Webpack","favicon":"https://www.webpackjs.com/icon_192x192.png"},
-      				{"n":"30","url":"https://www.parceljs.cn/","name": "Parcel","favicon":"https://www.parceljs.cn/assets/favicon.ico"},
-      				{"n":"30","url":"https://www.rollupjs.com/","name": "Rollup","favicon":"https://www.rollupjs.com/img/favicon.png"},
-
-      				{"n":"31","url":"https://www.babeljs.cn/","name": "Babel","favicon":"https://www.babeljs.cn/img/favicon.png"},
-      				{"n":"31","url":"https://www.sveltejs.cn/","name": "Svelte","favicon":"https://www.svelte.cn/favicon.png"},
-      				{"n":"31","url":"https://www.nextjs.cn/","name": "Next.js","favicon":"https://www.nextjs.cn/static/favicon/favicon-32x32.png"},
-      				{"n":"31","url":"https://www.gatsbyjs.cn/","name": "Gatsby","favicon":""},
-      				{"n":"31","url":"https://www.docusaurus.cn/","name": "Docusaurus","favicon":"https://www.docusaurus.cn/img/docusaurus.png"},
-      				{"n":"31","url":"https://www.denojs.cn/","name": "Deno","favicon":"https://www.denojs.cn/img/favicon.ico"},
-      				{"n":"31","url":"https://nuejs.org/","name": "Nue","favicon":""},
-
-      				{"n":"32","url":"https://www.wasm.com.cn/","name": "WebAssembly","favicon":""},
-      				{"n":"32","url":"https://www.markdown.xyz/","name": "MarkDown","favicon":""},
-      				{"n":"32","url":"https://www.mdxjs.cn/","name": "MDX","favicon":""},
-      				{"n":"32","url":"https://www.jquery123.com/","name": "jQuery","favicon":"https://www.jquery123.com/assets/images/favicon.ico"},
-      				{"n":"32","url": "https://www.jq22.com","name": "jQuery插件库","favicon":"https://www.jq22.com/favicon.ico"},
-      				{"n":"32","url": "https://phind.com/","name": "Phind AI","favicon":"https://phind.com/favicon.ico","remark":"需要过墙，面向开发人员的 AI 搜索引擎。"},
-      				{"n":"32","url":"https://www.bootcss.com/","name": "Bootstrap中文网","favicon":"https://www.bootcss.com/assets/favicons/favicon.ico"},
-
-      				{"n":"33","url": "https://www.code-nav.cn/","name": "编程导航","favicon":""},
-      				{"n":"33","url": "https://www.sojson.com","name": "sojson","favicon":"https://cdn.sojson.com/sojson/favicon32.png"},
-      				{"n":"33","url": "https://www.workerman.net","name": "Workerman","favicon":"https://www.workerman.net/favicon.ico"},
-      				{"n":"33","url": "http://www.websocket-test.com","name": "WebSocket","favicon":""},
-      				{"n":"33","url": "https://github.com/SortableJS/Sortable","name": "Sortable.js","favicon":"https://sortablejs.github.io/Sortable/st/og-image.png"},
-      				{"n":"33","url": "https://www.tailwindcss.cn","name": "Tailwind","favicon":"https://www.tailwindcss.cn/favicon-32x32.png"},
-      				{"n":"33","url": "https://unpkg.com/","name": "UNPKG","favicon":"https://unpkg.com/favicon.ico"},
-
-      				{"n":"34","url":"https://111666.best/","name": "111666图床","favicon":""},
-      				{"n":"34","url":"https://www.ax1x.com/","name": "路过图床","favicon":"","remark":"imgse.com"},
-      				{"n":"34","url":"https://mjj.today/","name": "mjj图","favicon":"","remark":"免费图床 图片上传分享"},
-      				{"n":"34","url":"https://img.one/","name": "一图","favicon":""},
-      				{"n":"34","url":"https://3o.hk/","name": "3o图","favicon":""},
-      				{"n":"34","url":"https://grapesjs.com/","name": "JS css","favicon":""},
-      				{"n":"34","url":"https://javascript.sumankunwar.com.np/","name": "JavaScript 学习","favicon":"","remark":"主页是一个在线的ubuntu系统"},
-					
-					{"n":"35","url": "https://www.dcloud.io","name": "DCloud","favicon":"https://ask.dcloud.net.cn/static/css/classblack/img/favicon.png","remark":"HBuilder X极客开发工具"},
-      				];
-
-      const groupTitles = {
-        '112': '[图床]',
-        '211': '[太阳]',
-        '212': '[月亮]',
-        '213': '[星星]'
-      };
-
-      function loadFavicon(img) {
-        const src = img.getAttribute('data-src');
-        if (src) {
-          const favicon = new Image();
-          favicon.onload = () => {
-            img.src = src;
-            img.classList.remove('loading');
-          };
-          favicon.src = src;
-        }
-      }
-
-      const main = document.getElementById('main');
-
-      const createLinkGroup = (group) => {
-        const div = document.createElement('div');
-        div.className = 'link-group hidden dark:bg-gray-950 dark:text-gray-100';
-        main.append(div);
-
-        const ul = document.createElement('ul');
-        ul.className = 'link-list';
-        div.appendChild(ul);
-
-        const titleLi = document.createElement('li');
-        titleLi.className = 'text-center text-sm';
-        titleLi.innerText = group.title;
-        ul.appendChild(titleLi);
-
-        group.links.forEach((link) => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a target="_blank" href="${link.url}" target="_blank"><img class="h-6 favicon loading" data-src="${link.favicon || (link.url + "/favicon.ico")}" alt=""><div class="name dark:text-gray-100">${link.name}${link.remark ? `<span>${link.remark}</span>` : ''}</div></a>`;
-          ul.append(li);
-        });
-      };
-
-      const groups = data.reduce((acc, cur) => {
-        const title = groupTitles[cur.n] || `[${cur.n}]`;
-        if (acc[cur.n] == null) {
-          acc[cur.n] = {
-            title,
-            links: [],
-          };
-        }
-        acc[cur.n].links.push(cur);
-        return acc;
-      }, {});
-
-      for (const [n, group] of Object.entries(groups)) {
-        createLinkGroup(group);
-      }
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            loadFavicon(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        rootMargin: '50px 0px',
-        threshold: 0.1
-      });
-
-      const imgs = document.querySelectorAll('.favicon');
-      imgs.forEach((img) => {
-        observer.observe(img);
-      });
-
-      // 检索功能实现
-       const searchInput = document.getElementById('search-input');
-        searchInput.addEventListener('input', () => {
-          if (searchInput.textContent.includes('.')) {
-        jjss()
-          }
-
-        });
-
-        function changeText() {
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>密码盒子_帮您保管密码520年</title>
+
+		<!-- 本站就1个HTML页面，欢迎打包带走 -->
+
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<meta name="referrer" content="no-referrer" />
+
+    <link rel="stylesheet" href="./output.css"> 
+
+		<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAYAAABXuSs3AAAAAXNSR0IArs4c6QAAArVJREFUaEPtWV1O20AQ/sbhoTSpoCdoboBvUHhGRuIE5AjhBA0nKEcIJ0CqxTNwA7gBPQFUTdQ+EE+13vh/HO8q3sog72Oynvk8O/N9M2vCG13kCjdf/xljJzqjYHjhwoc74OHvQ8C7pWDoxIcToyrC3AOXE8044nz9vI/BhwMMVr/oePQgmeNwOVPBjv8jjMGYAFC/rVd0T8Gnu/KzfLPwsRrsYfX3kU4/v5jUhDnw9dEDfE/B6FAGvsiBon0AB2p/upcxp5PRvAI8VM/RVyA6kl5M8tUq8LwDmxznHrhwNkkEN6XK+4i4KrgIl3X1UHzJlnKcfywmIPpSCHzCEoQnMCoFZqqQBeZJHBAmYIxBmIPxVPDL/FMqaLE4s2IxISa9x1QhOVxqujReMovJwONjZkVn2aKBD+bvAB6BaFr2a0pjulbKy7uMqZPoHLwqaoRHL5JuOKND44DG7UFLOS6Li26aTFglVsLIU6cDeNF5ndImfroDPFVZBa1ZDXvgcQQ8TPNHbCNA2d7tIp6chMRYNXSoKKv5iOsK0BZ4vR1dtD3wlA2SHr1C6uwDrLhZSdMUTNX+3aD3bkwVLfHeWeaflUg8AJQ29RR8PCrjK6aEDXPLub9uB741WLqgYDiLc3wNIK9o6uErIOsb1GbnwOMAxlOTXkw+CHvSMNIXZ/40OsUqyQUPatrMbYCnbfSrd0Wnu2lb21ic1dxdzvDqzYtGLHqVliSfw4ViJl8aRpx0h7ap0vcqW7e1+sJT01op5WTbHenHbaWotVTph2Uh9J0flpOLTDrZze4O0/ai/EYdGpY3iUdVNzpUnD3wGopyopy6Va4fuzqVKjZDwH8F3iQqwjCilFNdnOY+F0Z3pld1Tf6MU6XJUF0UTS9Dbe33wN9PxPXHgbE0ZNumhbTfWaq0AW6TjX9YCaZNi47pCgAAAABJRU5ErkJggg==" type="image/x-icon" />
+
+	</head>
+
+	<script>
+
+		! function(n) {
+
+			"use strict";
+
+
+
+			function d(n, t) {
+
+				var r = (65535 & n) + (65535 & t);
+
+				return (n >> 16) + (t >> 16) + (r >> 16) << 16 | 65535 & r
+
+			}
+
+
+
+			function f(n, t, r, e, o, u) {
+
+				return d((c = d(d(t, n), d(e, u))) << (f = o) | c >>> 32 - f, r);
+
+				var c, f
+
+			}
+
+
+
+			function l(n, t, r, e, o, u, c) {
+
+				return f(t & r | ~t & e, n, t, o, u, c)
+
+			}
+
+
+
+			function v(n, t, r, e, o, u, c) {
+
+				return f(t & e | r & ~e, n, t, o, u, c)
+
+			}
+
+
+
+			function g(n, t, r, e, o, u, c) {
+
+				return f(t ^ r ^ e, n, t, o, u, c)
+
+			}
+
+
+
+			function m(n, t, r, e, o, u, c) {
+
+				return f(r ^ (t | ~e), n, t, o, u, c)
+
+			}
+
+
+
+			function i(n, t) {
+
+				var r, e, o, u, c;
+
+				n[t >> 5] |= 128 << t % 32, n[14 + (t + 64 >>> 9 << 4)] = t;
+
+				var f = 1732584193,
+
+					i = -271733879,
+
+					a = -1732584194,
+
+					h = 271733878;
+
+				for (r = 0; r < n.length; r += 16) f = l(e = f, o = i, u = a, c = h, n[r], 7, -680876936), h = l(h, f, i, a,
+
+						n[r + 1], 12, -389564586), a = l(a, h, f, i, n[r + 2], 17, 606105819), i = l(i, a, h, f, n[r + 3],
+
+						22, -1044525330), f = l(f, i, a, h, n[r + 4], 7, -176418897), h = l(h, f, i, a, n[r + 5], 12,
+
+						1200080426), a = l(a, h, f, i, n[r + 6], 17, -1473231341), i = l(i, a, h, f, n[r + 7], 22, -
+
+						45705983), f = l(f, i, a, h, n[r + 8], 7, 1770035416), h = l(h, f, i, a, n[r + 9], 12, -1958414417),
+
+					a =
+
+					l(a, h, f, i, n[r + 10], 17, -42063), i = l(i, a, h, f, n[r + 11], 22, -1990404162), f = l(f, i, a, h, n[
+
+						r + 12], 7, 1804603682), h = l(h, f, i, a, n[r + 13], 12, -40341101), a = l(a, h, f, i, n[r + 14],
+
+						17, -1502002290), f = v(f, i = l(i, a, h, f, n[r + 15], 22, 1236535329), a, h, n[r + 1], 5, -
+
+						165796510), h = v(h, f, i, a, n[r + 6], 9, -1069501632), a = v(a, h, f, i, n[r + 11], 14, 643717713),
+
+					i = v(i, a, h, f, n[r], 20, -373897302), f = v(f, i, a, h, n[r + 5], 5, -701558691), h = v(h, f, i, a, n[
+
+						r + 10], 9, 38016083), a = v(a, h, f, i, n[r + 15], 14, -660478335), i = v(i, a, h, f, n[r + 4], 20,
+
+						-405537848), f = v(f, i, a, h, n[r + 9], 5, 568446438), h = v(h, f, i, a, n[r + 14], 9, -1019803690),
+
+					a = v(a, h, f, i, n[r + 3], 14, -187363961), i = v(i, a, h, f, n[r + 8], 20, 1163531501), f = v(f, i, a,
+
+						h, n[r + 13], 5, -1444681467), h = v(h, f, i, a, n[r + 2], 9, -51403784), a = v(a, h, f, i, n[r + 7],
+
+						14, 1735328473), f = g(f, i = v(i, a, h, f, n[r + 12], 20, -1926607734), a, h, n[r + 5], 4, -378558),
+
+					h = g(h, f, i, a, n[r + 8], 11, -2022574463), a = g(a, h, f, i, n[r + 11], 16, 1839030562), i = g(i, a,
+
+						h, f, n[r + 14], 23, -35309556), f = g(f, i, a, h, n[r + 1], 4, -1530992060), h = g(h, f, i, a, n[r +
+
+						4], 11, 1272893353), a = g(a, h, f, i, n[r + 7], 16, -155497632), i = g(i, a, h, f, n[r + 10], 23, -
+
+						1094730640), f = g(f, i, a, h, n[r + 13], 4, 681279174), h = g(h, f, i, a, n[r], 11, -358537222), a =
+
+					g(a, h, f, i, n[r + 3], 16, -722521979), i = g(i, a, h, f, n[r + 6], 23, 76029189), f = g(f, i, a, h, n[
+
+						r + 9], 4, -640364487), h = g(h, f, i, a, n[r + 12], 11, -421815835), a = g(a, h, f, i, n[r + 15],
+
+						16, 530742520), f = m(f, i = g(i, a, h, f, n[r + 2], 23, -995338651), a, h, n[r], 6, -198630844), h =
+
+					m(h, f, i, a, n[r + 7], 10, 1126891415), a = m(a, h, f, i, n[r + 14], 15, -1416354905), i = m(i, a, h, f,
+
+						n[r + 5], 21, -57434055), f = m(f, i, a, h, n[r + 12], 6, 1700485571), h = m(h, f, i, a, n[r + 3],
+
+						10, -1894986606), a = m(a, h, f, i, n[r + 10], 15, -1051523), i = m(i, a, h, f, n[r + 1], 21, -
+
+						2054922799), f = m(f, i, a, h, n[r + 8], 6, 1873313359), h = m(h, f, i, a, n[r + 15], 10, -30611744),
+
+					a = m(a, h, f, i, n[r + 6], 15, -1560198380), i = m(i, a, h, f, n[r + 13], 21, 1309151649), f = m(f, i,
+
+						a, h, n[r + 4], 6, -145523070), h = m(h, f, i, a, n[r + 11], 10, -1120210379), a = m(a, h, f, i, n[
+
+						r + 2], 15, 718787259), i = m(i, a, h, f, n[r + 9], 21, -343485551), f = d(f, e), i = d(i, o), a = d(
+
+						a, u), h = d(h, c);
+
+				return [f, i, a, h]
+
+			}
+
+
+
+			function a(n) {
+
+				var t, r = "",
+
+					e = 32 * n.length;
+
+				for (t = 0; t < e; t += 8) r += String.fromCharCode(n[t >> 5] >>> t % 32 & 255);
+
+				return r
+
+			}
+
+
+
+			function h(n) {
+
+				var t, r = [];
+
+				for (r[(n.length >> 2) - 1] = void 0, t = 0; t < r.length; t += 1) r[t] = 0;
+
+				var e = 8 * n.length;
+
+				for (t = 0; t < e; t += 8) r[t >> 5] |= (255 & n.charCodeAt(t / 8)) << t % 32;
+
+				return r
+
+			}
+
+
+
+			function e(n) {
+
+				var t, r, e = "0123456789abcdef",
+
+					o = "";
+
+				for (r = 0; r < n.length; r += 1) t = n.charCodeAt(r), o += e.charAt(t >>> 4 & 15) + e.charAt(15 & t);
+
+				return o
+
+			}
+
+
+
+			function r(n) {
+
+				return unescape(encodeURIComponent(n))
+
+			}
+
+
+
+			function o(n) {
+
+				return a(i(h(t = r(n)), 8 * t.length));
+
+				var t
+
+			}
+
+
+
+			function u(n, t) {
+
+				return function(n, t) {
+
+					var r, e, o = h(n),
+
+						u = [],
+
+						c = [];
+
+					for (u[15] = c[15] = void 0, 16 < o.length && (o = i(o, 8 * n.length)), r = 0; r < 16; r += 1) u[r] =
+
+						909522486 ^ o[r], c[r] = 1549556828 ^ o[r];
+
+					return e = i(u.concat(h(t)), 512 + 8 * t.length), a(i(c.concat(e), 640))
+
+				}(r(n), r(t))
+
+			}
+
+
+
+			function t(n, t, r) {
+
+				return t ? r ? u(t, n) : e(u(t, n)) : r ? o(n) : e(o(n))
+
+			}
+
+			"function" == typeof define && define.amd ? define(function() {
+
+				return t
+
+			}) : "object" == typeof module && module.exports ? module.exports = t : n.md5 = t
+
+		}(this);
+
+	</script>
+
+	<body>
+
+		<body class="bg-gray-200 dark:bg-gray-800 ">
+
+			<div class="flex justify-center text-center  pt-2">
+
+				<div class="flex flex-col justify-center dark:bg-gray-200  bg-gray-300 p-2 rounded-2xl shadow-xl leading-4 ">
+					<div class="justify-center">
+					<b class="font-bold text-xl ">密码盒子</b>
+    <span class="m-3 text-sm dark:text-gray-900" id="cdark" onclick="changeText()">太阳</span></div>
+					<div class="header">
+
+						<input
+
+							class="w-full h-8 px-2 text-sm text-gray-700 placeholder-gray-600 border border-red-500 rounded-lg "
+
+							type="text" id="input" autofocus="autofocus" placeholder="Key :">
+
+						<br />
+
+						<div class="inline-flex pt-2 pb-2" role="group" aria-label="Button group">
+
+							<button id="kg1" type="button"
+
+								class="h-6 px-2 border border-gray-900 bg-purple-300  hover:bg-yellow-300 rounded-l-lg ">pass_<sub>****</sub></button>
+
+							<button id="kg2" type="button"
+
+								class="h-6 px-2 border border-gray-900 bg-purple-300  hover:bg-yellow-300">A<sub>-a</sub></button>
+
+							<button id="kg" type="button"
+
+								class="h-6 px-2 border border-gray-900 bg-purple-300  hover:bg-yellow-300">A1_<sub></sub><sub>A1</sub></button>
+
+							<button id="ys" type="button"
+
+								class="h-6 px-2 border border-gray-900 bg-purple-300  hover:bg-yellow-300">
+
+								S<sub>e</sub> </button>
+
+							<button id="kghs" type="button"
+
+								class="h-6 px-2 border border-gray-900 bg-purple-300  hover:bg-yellow-300"> <sub
+
+									id="kghs1"></sub>+ </button>
+
+							<button id="kgfu" type="button"
+
+								class="h-6 px-2 border border-gray-900 bg-purple-300  hover:bg-yellow-300">
+
+								Note.</button>
+
+							<button id="kgfenge" type="button"
+
+								class="h-6 px-2 border border-gray-900 bg-purple-300  hover:bg-yellow-300 rounded-r-lg">|
+
+								| | |</button>
+
+						</div>
+
+						<div class="dcenter">
+
+							<b>
+
+								<pre id="demo"></pre>
+
+							</b>
+
+						</div>
+
+
+
+						<b>
+
+							<b id="yy2"> </b>
+
+						</b>
+
+						<textarea id="jiyi" rows="3" cols="54" hidden="hidden"
+
+							placeholder="便签:按照习惯自由发挥,便签仅本机存储,不使用可以清空."></textarea>
+
+					</div>
+
+					<div class="pt-2 text-gray-500 text-xs">
+
+						<a href="https://beian.miit.gov.cn/"> ICP备11001806号</a>
+
+						<a id="www" target="_blank"
+
+							href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=USI0NDo1NCc4PREnOCF-ICB-Mj48">给我写信</a>
+
+						<a href="/Shamir.html"> Shamir</a>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<script type="text/javascript">
+
+				var xy00 = localStorage;
+
+				var xyz = document.getElementById("demo");
+
+				var xy01 = document.getElementById("input");
+
+				var xy02 = document.getElementById("kghs1");
+
+				var xy03 = document.getElementById("jiyi");
+
+				var hshs = 6;
+
+
+
+				xy01.addEventListener("keyup", jiami);
+
+				xy03.addEventListener("keyup", fuji);
+
+				document.getElementById("kg").addEventListener("click", shangxia);
+
+				document.getElementById("kg1").addEventListener("click", yincang);
+
+				document.getElementById("kg2").addEventListener("click", daxie);
+
+				document.getElementById("kgfu").addEventListener("click", kgfuzhu);
+
+				document.getElementById("ys").addEventListener("click", yanse);
+
+				document.getElementById("kghs").addEventListener("click", hangshu);
+
+				document.getElementById("kgfenge").addEventListener("click", fenge);
+
+				if (xy00.passwor) {
+
+					xy01.value = xy00.passwor;
+
+					jiami();
+
+				}
+
+				if (xy00.colo) {
+
+					xyz.style.color = xy00.colo;
+
+				}
+
+				if (xy00.fuzhujiyi) {
+
+					xy03.value = xy00.fuzhujiyi;
+
+				}
+
+				if (xy00.hangs) {
+
+					hshs = Number(xy00.hangs);
+
+				}
+
+				xy02.innerText = hshs;
+
+
+
+				function daxie() {
+
+					xy00.kgcap == 0 ? xy00.kgcap = 1 : xy00.kgcap = 0;
+
+					jiami();
+
+				}
+
+
+
+				function fenge() {
+
+					xy00.fengefu == 0 ? xy00.fengefu = 1 : xy00.fengefu = 0;
+
+					jiami();
+
+				}
+
+
+
+				function fuji() {
+
+					xy00.fuzhujiyi = document.getElementById('jiyi').value;
+
+				}
+
+
+
+				function kgfuzhu() {
+
+					if (xy03.hidden == false) {
+
+						xy03.hidden = true;
+
+						document.getElementById("yy2").hidden = false;
+
+						document.getElementById("www").innerText = "给我写信";
+
+					} else {
+
+						xy03.hidden = false;
+
+						document.getElementById("yy2").hidden = true;
+
+						document.getElementById("www").innerText = "555-35.Com";
+
+					}
+
+				}
+
+
+
+				function hangshu() {
+
+					hshs > 21 ? hshs = 1 : hshs += 5;
+
+					xy02.innerText = hshs;
+
+					xy00.hangs = hshs;
+
+					jiami();
+
+
+
+				}
+
+
+
+				function yanse() {
+
+					ys = "#" + Math.floor(Math.random() * 0xffffff).toString(16);
+
+					xyz.style.color = ys;
+
+					xy00.colo = ys;
+
+				}
+
+				var kgshangxia = false;
+
+
+
+				function shangxia() {
+
+					kgshangxia ? kgshangxia = false : kgshangxia = true;
+
+					jiami();
+
+				}
+
+				var kgpass = true;
+
+
+
+				function yincang() {
+
+					if (kgpass) {
+
+						kgpass = false;
+
+						xy01.type = "password";
+
+					} else {
+
+						kgpass = true;
+
+						xy01.type = "text";
+
+					}
+
+					jiami();
+
+				}
+
+
+
+				function jiami() {
+
+					if (!xy01.value) {
+
+						xyz.innerHTML =
+
+							`密码盒子
+
+是一款非常小巧的
+
+无规则账号密码管理器
+
+555-35=520 年不会忘
+
+可以按不同的颜色分类管理
+
+截图或者打印出来放在键盘下
+
+神仙猜不透 上帝也不明白
+
+账号密码再也不用记`;
+
+						xy00.removeItem("passwor");
+
+						xy00.removeItem("colo");
+
+						return
+
+					}
+
+					var ee = md5(xy01.value);
+
+					var xx = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G",
+
+						"H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+
+					];
+
+					if (xy00.hangs) {
+
+						hshs = Number(xy00.hangs);
+
+					}
+
+					xy01.type == "text" ? xy00.passwor = xy01.value : xy00.removeItem("passwor");
+
+					sz = []
+
+					for (let i = 0; i < hshs; i++) {
+
+						var eee = ee.slice(0, ee.length - i);
+
+						var aa = md5(eee);
+
+						xy00.kgcap == "0" ? "" : aa = aa.toUpperCase();
+
+						sz.push(aa.slice(0, 8), aa.slice(8, 16), aa.slice(16, 24), aa.slice(24, 32));
+
+					}
+
+
+
+					if (xy00.fengefu == 0) {
+
+						var szz = "0·[-- AA --|-- BB --|-- CC --|-- DD --]·X<br>"
+
+						for (let i = 0; i < sz.length; i++) {
+
+							if (i + 1 == sz.length) {
+
+								szz += "|" + sz[i] + "]·" + xx[(i + 1) / 4 + 9] + "<br>"
+
+							} else if ((i + 1) % 4 == 0) {
+
+								szz += "|" + sz[i] + "]·" + xx[(i + 1) / 4 + 9] + "<br>"
+
+							} else if ((i + 4) % 4 == 0) {
+
+								szz += xx[i / 4] + ".[" + sz[i]
+
+							} else {
+
+								szz += "|" + sz[i]
+
+							}
+
+						}
+
+						szz += "0·[-- EE --|-- FF --|-- GG --|-- HH --]·X"
+
+
+
+					} else {
+
+						var szz = "0·[-- AA ---- BB ---- CC ---- DD --]·X<br>"
+
+						for (let i = 0; i < sz.length; i++) {
+
+							if (i + 1 == sz.length) {
+
+								szz += sz[i] + "]·" + xx[(i + 1) / 4 + 9] + "<br>"
+
+							} else if ((i + 1) % 4 == 0) {
+
+								szz += sz[i] + "]·" + xx[(i + 1) / 4 + 9] + "<br>"
+
+							} else if ((i + 4) % 4 == 0) {
+
+								szz += xx[i / 4] + ".[" + sz[i]
+
+							} else {
+
+								szz += sz[i]
+
+							}
+
+						}
+
+						szz += "0·[-- EE ---- FF ---- GG ---- HH --]·X"
+
+					}
+
+					kgshangxia ? szz = szz.replace(/([0-9])/g, '<sub>$1</sub>') : "";
+
+					xyz.innerHTML = szz;
+
+				};
+
+
+
+function changeText() {
  var cdark = document.getElementById("cdark");
     var currentText = cdark.innerHTML;
 
@@ -503,41 +685,14 @@
 
     }
 }
- 
-      function jjss(){
-               const keywords = searchInput.textContent.trim().split(/\s+/); // 分割搜索词
-          for (const div of main.children) {
-            let hasVisibleLinks = false;
-            for (const li of div.querySelector('.link-list').children) {
-              const nameEl = li.querySelector('.name');
-              const hrefEl = li.querySelector('a');
-              if (!nameEl || !hrefEl) {
-                continue;
-              }
-              const linkName = nameEl.textContent.trim();
-              const href = hrefEl.getAttribute('href').trim();
-              let isMatched = false;
-              for (const keyword of keywords) {
-                if (linkName.includes(keyword) || href.includes(keyword)) { // 匹配
-                  isMatched = true;
-                  break;
-                }
-              }
-              if (isMatched) {
-                li.classList.remove('hidden');
-                hasVisibleLinks = true;
-              } else {
-                li.classList.add('hidden');
-              }
-            }
-            if (!hasVisibleLinks) {
-              div.classList.add('hidden');
-            } else {
-              div.classList.remove('hidden');
-            }
-          }
-      }
-  </script>
-<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2b286e5675984fcd83980d1941cccb1a"}'></script><!-- Cloudflare Pages Analytics --></body>
 
-</html>
+			</script>
+
+
+
+
+
+		 </body>
+
+ </html>
+
